@@ -1,0 +1,350 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Nunito', sans-serif; }
+
+body { background-color: #f0f4f8; color: #333; display: flex; height: 100vh; overflow: hidden; }
+
+/* Layout Utama */
+.admin-container { display: flex; width: 100%; height: 100%; }
+
+/* Sidebar */
+.sidebar { width: 250px; background: #2c3e50; color: white; padding: 2rem 1rem; display: flex; flex-direction: column; }
+.logo { font-size: 1.5rem; font-weight: 700; margin-bottom: 2.5rem; text-align: center; }
+.sidebar nav a { display: block; color: #cbd5e1; text-decoration: none; padding: 1rem; border-radius: 12px; margin-bottom: 0.5rem; transition: background 0.3s; }
+.sidebar nav a:hover, .sidebar nav a.active { background: #34495e; color: white; }
+
+/* Konten Utama */
+.main-content { flex: 1; padding: 2rem 3rem; overflow-y: auto; }
+.topbar h2 { color: #1e293b; font-size: 1.8rem; margin-bottom: 2rem; }
+
+/* Kartu Statistik */
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem; }
+.stat-card { background: white; padding: 1.5rem; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); border-left: 5px solid #4299e1; }
+.stat-card.warning { border-left-color: #ed8936; }
+.stat-card.success { border-left-color: #48bb78; }
+.stat-card h3 { font-size: 0.9rem; color: #64748b; margin-bottom: 0.5rem; font-weight: 600; }
+.stat-card p { font-size: 2rem; font-weight: 700; color: #1e293b; }
+
+/* Tabel */
+.table-section { background: white; padding: 1.5rem; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
+.table-section h3 { margin-bottom: 1.5rem; font-size: 1.2rem; color: #1e293b; }
+.table-container { overflow-x: auto; margin-bottom: 1.5rem; border: 1px solid #e2e8f0; border-radius: 12px; }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 1rem; text-align: left; border-bottom: 1px solid #e2e8f0; font-size: 0.95rem; vertical-align: top;}
+th { background-color: #f8fafc; font-weight: 700; color: #475569; }
+
+/* Badge & Text */
+.nama-teks { font-weight: 700; color: #0f172a; display: block; font-size: 1.05rem;}
+.waktu-teks { font-size: 0.8rem; color: #94a3b8; }
+.detail-teks { display: block; font-size: 0.85rem; color: #475569; margin-bottom: 0.2rem;}
+
+.badge { padding: 0.3rem 0.6rem; border-radius: 20px; font-size: 0.8rem; font-weight: 700; display: inline-block; }
+.bg-hadir { background: #c6f6d5; color: #22543d; }
+.bg-sakit { background: #fefcbf; color: #744210; }
+.bg-izin { background: #bee3f8; color: #2a4365; }
+
+.badge-approval { padding: 0.4rem 0.8rem; border-radius: 8px; font-size: 0.85rem; font-weight: 700; text-align: center; }
+.app-menunggu { background: #feebc8; color: #c05621; }
+.app-disetujui { background: #c6f6d5; color: #276749; }
+.app-ditolak { background: #fed7d7; color: #9b2c2c; }
+.app-selesai { background: #e2e8f0; color: #4a5568; }
+
+/* Tombol Aksi */
+.aksi-grup { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.btn { padding: 0.5rem 0.8rem; border: none; border-radius: 8px; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: 0.2s; color: white;}
+.btn:active { transform: scale(0.95); }
+.btn-setuju { background: #48bb78; }
+.btn-setuju:hover { background: #38a169; }
+.btn-tolak { background: #e53e3e; }
+.btn-tolak:hover { background: #c53030; }
+.btn-danger { background: transparent; color: #e53e3e; border: 2px solid #fc8181; padding: 0.7rem 1.2rem; border-radius: 10px; cursor: pointer; font-weight: bold;}
+.btn-danger:hover { background: #e53e3e; color: white; }
+
+/* Tombol Export Excel */
+.btn-export {
+    background: #107c41; /* Warna hijau khas Excel */
+    color: white;
+    border: none;
+    padding: 0.7rem 1.2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn-export:hover {
+    background: #0b5e31;
+}
+
+/* Gaya Kotak Jam & Hari di Topbar */
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.topbar h2 {
+    margin-bottom: 0.2rem;
+}
+
+.clock-box {
+    background: white;
+    padding: 0.75rem 1.25rem;
+    border-radius: 12px;
+    font-weight: 700;
+    color: #334155;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    border: 1px solid #e2e8f0;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* --- CSS GLOBAL --- */
+body { font-family: 'Segoe UI', sans-serif; background-color: #f0f4f8; margin: 0; }
+
+/* --- CSS HALAMAN LOGIN --- */
+.login-page { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+.login-card { 
+    background: white; 
+    padding: 2.5rem;
+    border-radius: 20px; 
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3); 
+    width: 460px;
+    max-width: calc(100vw - 2rem);
+    animation: fadeInUp 0.6s ease;
+}
+.login-card h2 {
+    text-align: center;
+    color: #1e293b;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+.input-group {
+    margin-bottom: 1.2rem;
+}
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #334155;
+    font-size: 0.95rem;
+}
+.input-group input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    transition: border-color 0.3s;
+}
+.input-group input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+.btn-login { 
+    width: 100%; 
+    padding: 0.85rem; 
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white; 
+    border: none; 
+    border-radius: 10px; 
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn-login:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+.btn-login:active {
+    transform: translateY(0);
+}
+
+/* Tombol Kembali ke User Page */
+.btn-back-to-user {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    text-decoration: none;
+    color: white;
+    background: rgba(255,255,255,0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    transition: background 0.3s, transform 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+.btn-back-to-user:hover {
+    background: rgba(255,255,255,0.3);
+    transform: translateX(-3px);
+}
+
+/* Responsive Login */
+@media (max-width: 480px) {
+    .login-card {
+        width: 90%;
+        padding: 1.5rem;
+    }
+    
+    .login-card h2 {
+        font-size: 1.4rem;
+    }
+    
+    .btn-login {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* --- CSS DASHBOARD ADMIN --- */
+.admin-container { display: flex; min-height: 100vh; }
+.sidebar { width: 250px; background: #1e293b; color: white; padding: 2rem; display: flex; flex-direction: column; }
+.main-content { flex: 1; padding: 2rem; }
+
+/* Tombol */
+.btn-login { width: 100%; padding: 0.8rem; background: #2c3e50; color: white; border: none; border-radius: 8px; cursor: pointer; }
+.btn-export { background: #107c41; color: white; border: none; padding: 0.7rem; border-radius: 8px; }
+.btn-danger { background: #e53e3e; color: white; border: none; padding: 0.7rem; border-radius: 8px; }
+
+/* Tabel */
+table { width: 100%; border-collapse: collapse; background: white; border-radius: 10px; overflow: hidden; }
+th, td { padding: 1rem; text-align: left; border-bottom: 1px solid #e2e8f0; }
+
+/* Logout Section */
+.logout-section {
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid #475569;
+}
+
+.btn-logout {
+    width: 100%;
+    padding: 0.75rem;
+    background: #e53e3e;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s, transform 0.2s;
+    font-size: 0.9rem;
+}
+
+.btn-logout:hover {
+    background: #c53030;
+    transform: translateY(-2px);
+}
+
+.btn-logout:active {
+    transform: translateY(0);
+}
+
+/* Filter Section */
+.filter-section {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    margin-bottom: 2rem;
+    border: 1px solid #e2e8f0;
+}
+
+.filter-section h3 {
+    margin-bottom: 1.2rem;
+    font-size: 1.1rem;
+    color: #1e293b;
+}
+
+.filter-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    align-items: flex-end;
+}
+
+.filter-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-item label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #334155;
+    font-size: 0.9rem;
+}
+
+.filter-input {
+    padding: 0.75rem 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    background: white;
+}
+
+.filter-input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.btn-filter-reset {
+    background: #f3f4f6;
+    color: #4b5563;
+    border: 2px solid #d1d5db;
+    padding: 0.75rem 1.25rem;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s, border-color 0.3s;
+}
+
+.btn-filter-reset:hover {
+    background: #e5e7eb;
+    border-color: #9ca3af;
+}
+
+.btn-filter-reset:active {
+    transform: scale(0.95);
+}

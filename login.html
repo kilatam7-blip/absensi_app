@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>Login Admin</title>
+    <!-- Menghubungkan ke file CSS terpisah -->
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body class="login-page">
+
+    <a href="index.html" class="btn-back-to-user">
+        ← Kembali ke Halaman User
+    </a>
+
+    <div class="login-card">
+        <h2>🔒 Login Admin</h2>
+        
+        <!-- Security warning jika session expired -->
+        <div id="sessionExpiredAlert" style="display: none; background: #fef3c7; color: #92400e; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; border-left: 4px solid #f59e0b; font-size: 0.9rem;">
+            ⏱️ <strong>Sesi Anda telah berakhir karena inaktif.</strong> Silakan login kembali untuk melanjutkan.
+        </div>
+        
+        <form id="loginForm">
+            <div class="input-group">
+                <label>Username</label>
+                <input type="text" id="username" placeholder="Username" autocomplete="off" required>
+            </div>
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" id="password" placeholder="Password" autocomplete="off" required>
+            </div>
+            <button type="submit" class="btn-login">Masuk</button>
+        </form>
+        
+        <!-- Keamanan Info -->
+        <div style="background: #f0f4f8; padding: 1rem; border-radius: 8px; margin-top: 1.5rem; font-size: 0.8rem; color: #475569;">
+            <p style="font-weight: 600; margin-bottom: 0.5rem;">🔐 Fitur Keamanan:</p>
+            <ul style="margin: 0; padding-left: 1.2rem; line-height: 1.6;">
+                <li>✓ Rate limiting (max 5 percobaan)</li>
+                <li>✓ Lockout 15 menit setelah gagal</li>
+                <li>✓ Session timeout 30 menit</li>
+                <li>✓ Token validation otomatis</li>
+                <li>✓ Activity monitoring</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

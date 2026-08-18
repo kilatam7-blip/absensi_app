@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>Portal Kehadiran & Izin</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="page-header">
+            <div class="title-wrap">
+                <span class="title-icon">🗒️</span>
+                <h1>Daftar Hadir Harian</h1>
+            </div>
+            <p>Jangan lupa absen atau ajukan izinmu hari ini!</p>
+        </header>
+
+        <main>
+            <div class="top-actions">
+                <a href="login.html" class="btn-admin-login">🔐 Admin Login</a>
+            </div>
+            <section class="form-section">
+<form id="absenForm">
+    <div class="input-group">
+        <label for="nama">Nama Lengkap</label>
+        <input type="text" id="nama" placeholder="Masukkan namamu..." required autocomplete="off">
+    </div>
+
+    <!-- TAMBAHAN: Pilihan Tanggal Absensi -->
+    <div class="input-group">
+        <label for="tanggalAbsen">Tanggal Absensi</label>
+        <input type="date" id="tanggalAbsen" required>
+    </div>
+    
+    <div class="input-group">
+        <label for="status">Kategori</label>
+        <select id="status" required>
+            <option value="" disabled selected>Pilih kategori kehadiran...</option>
+            <option value="Hadir">🟢 Hadir</option>
+            <option value="Sakit">🟡 Sakit</option>
+            <option value="Izin">🔵 Izin</option>
+        </select>
+    </div>
+
+    <!-- Area Pengajuan Izin/Sakit -->
+    <div id="areaIzin" class="hidden">
+        <div class="input-group">
+            <label for="alasan">Alasan / Keterangan Tambahan</label>
+            <input type="text" id="alasan" placeholder="Tulis alasanmu di sini (wajib diisi)..." autocomplete="off">
+        </div>
+
+        <div class="input-row">
+            <div class="input-group flex-1">
+                <label for="tglMulai">Dari Tanggal</label>
+                <input type="date" id="tglMulai">
+            </div>
+            <div class="input-group flex-1">
+                <label for="tglSelesai">Sampai Tanggal (Opsional)</label>
+                <input type="date" id="tglSelesai">
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label for="bukti">Lampirkan Bukti/Surat (Opsional)</label>
+            <input type="file" id="bukti" accept="image/*,.pdf" class="file-input">
+        </div>
+    </div>
+
+    <button type="submit" class="btn-submit">Simpan Data</button>
+</form>
+            </section>
+
+        </main>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
